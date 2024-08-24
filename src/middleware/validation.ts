@@ -15,3 +15,17 @@ export const validateMyUser=[
     handleValidation,
 
 ]
+
+export const validateMyRestaurant=[
+    body("restaurantName").notEmpty().withMessage("restaurant name is required"),
+    body("city").notEmpty().withMessage("city name is required"),
+    body("country").notEmpty().withMessage("country name is required"),
+    body("deliveryPrice").isFloat({min:0}).withMessage("delivery price must be positive number"),
+    body("estimatedDeliveryTime").isInt({min:0}).withMessage("estimatedDeliveryTime must be a positive integer"),
+    body("cuisines").isArray().withMessage("cuisines must be array").not().isEmpty().withMessage("cuisines cannot be empty"),
+    body("menuItems").isArray().withMessage("menuItems must be array"),
+    body("menuItems.*.name").notEmpty().withMessage("name cannot be empty"),
+    body("menuItems.*.price").isFloat({min:0}).withMessage("price must be positive integer"),
+    handleValidation
+]
+
