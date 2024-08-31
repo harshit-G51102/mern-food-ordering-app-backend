@@ -20,3 +20,4 @@ router.get('/',jwtCheck,jwtParse,myRestaurantController.getMyRestaurant);
 router.put('/',upload.single("imageFile"),validateMyRestaurant,jwtCheck,jwtParse,myRestaurantController.updateMyrestaurant);
 
 export default router;
+
